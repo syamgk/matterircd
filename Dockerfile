@@ -12,4 +12,4 @@ RUN yum remove -y golang git
 
 EXPOSE 6667
 
-ENTRYPOINT ["/usr/bin/matterircd -bind 0.0.0.0:6667"]
+ENTRYPOINT ["/usr/bin/matterircd", "-bind", "0.0.0.0:6667"]
