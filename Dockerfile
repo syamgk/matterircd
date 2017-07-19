@@ -1,14 +1,9 @@
-FROM registry.centos.org/centos/centos
+FROM registry.centos.org/centos/centos:7
 
-RUN yum -y install golang git
+RUN yum -y install wget
 
-ENV GOPATH /tmp/
-
-RUN go get github.com/42wim/matterircd
-
-RUN cp /tmp/bin/matterircd /usr/bin/
-
-RUN yum remove -y golang git
+RUN wget -O /usr/bin/matterircd https://github.com/42wim/matterircd/releases/download/v0.13.0/matterircd-linux64 && \
+    chmod +x /usr/bin/matterircd
 
 EXPOSE 6667
 
